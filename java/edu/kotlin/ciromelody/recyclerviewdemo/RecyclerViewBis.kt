@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.kotlin.ciromelody.recyclerviewdemo.adapter.MyRecyclerAdapter
 import edu.kotlin.ciromelody.recyclerviewdemo.adapter.MyRecyclerAdapterConClasse
+import edu.kotlin.ciromelody.recyclerviewdemo.adapter.MyRecyclerAdapterMultiItems
 import edu.kotlin.ciromelody.recyclerviewdemo.model.Fruit
 
 class RecyclerViewBis : AppCompatActivity() {
@@ -29,13 +30,17 @@ class RecyclerViewBis : AppCompatActivity() {
         //recyclerview.adapter= MyRecyclerAdapter(fruitList)
 
         // passo la funzione come se fosse un parametro
-        recyclerview.adapter= MyRecyclerAdapterConClasse(fruitListConClasse,
+       /* recyclerview.adapter= MyRecyclerAdapterConClasse(fruitListConClasse,
                                                        // {selectedItem:Fruit->listItemClicked(selectedItem)}
             fun (it:Fruit):Unit{listItemClicked(it)
             }
-            )
-
-
+            )*/
+       // recyclerview con items diversi
+        recyclerview.adapter= MyRecyclerAdapterMultiItems(fruitListConClasse,
+            // {selectedItem:Fruit->listItemClicked(selectedItem)}
+            fun (it:Fruit):Unit{listItemClicked(it)
+            }
+        )
 
     }
     private fun listItemClicked(fruit: Fruit){
